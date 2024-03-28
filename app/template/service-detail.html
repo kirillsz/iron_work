@@ -1,0 +1,670 @@
+{% extends "index.html" %}
+
+{% load static %}
+{% load func %}
+
+{% block seo_t %}{% if object.seo_t %}{{ object.seo_t }} | {{ city.alt_name }}{% else %}{{ object.name }} | {{ city.alt_name }}{% endif %}{% endblock %}
+{% block seo_d %}{% if object.seo_d %}{{ object.seo_d }} | {{ city.alt_name }}{% else %}{{ object.name }} | {{ city.alt_name }}{% endif %}{% endblock %}
+{% block body %}
+	<div class="main service detail">
+		<div class="wrap-detail-service">
+		
+			<div class="top">
+				<div class="back"></div>
+				<div class="back-2"></div>
+				<div class="info">
+
+					<div class="slider">
+
+						<div class="image">
+							{% for image in images %}
+								{% if image.default %}
+									<picture>
+
+										<source srcset="{{ image.image }}_750.webp, {{ image.image }}_1500.webp 2x" type="image/webp">
+										<img src="{{ image.image }}_750.jpg" srcset="{{ image.image }}_750.jpg, {{ image.image }}_1500.jpg 2x">
+
+									</picture>
+								{% endif %}
+							{% endfor %}
+						</div>
+						
+						<div class="bonus">
+
+							<div class="icon">
+								<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1613883038/Group_80_us9vy2.png">
+							</div>
+
+							<div class="name">{{ object.bonus }} бонусов</div>
+
+							<div class="info">
+								<svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M5 0C2.24291 0 0 2.24291 0 5C0 7.75709 2.24291 10 5 10C7.75709 10 10 7.75709 10 5C10 2.24291 7.75709 0 5 0ZM5 9.16666C2.7025 9.16666 0.83334 7.2975 0.83334 5C0.83334 2.7025 2.7025 0.83334 5 0.83334C7.2975 0.83334 9.16666 2.7025 9.16666 5C9.16666 7.2975 7.2975 9.16666 5 9.16666Z" fill="white"/>
+									<path d="M4.89459 6.73755C4.6225 6.74214 4.40333 6.96131 4.39875 7.2334C4.39833 7.24174 4.39833 7.25049 4.39875 7.25881C4.40833 7.53257 4.6375 7.74674 4.91125 7.73758H4.89459C5.16959 7.73299 5.39043 7.50882 5.39043 7.2334C5.38375 6.96215 5.16584 6.74421 4.89459 6.73755Z" fill="white"/>
+									<path d="M4.98886 2.27924C4.40136 2.26174 3.83386 2.4934 3.42635 2.91674C3.37926 2.9759 3.35426 3.04965 3.35551 3.12508C3.3576 3.30967 3.50426 3.46008 3.68885 3.46674C3.7747 3.46715 3.85761 3.4359 3.9222 3.37924C4.18054 3.11133 4.53761 2.9609 4.9097 2.96258C5.4722 2.96258 5.74304 3.26674 5.74304 3.62508C5.74304 4.39174 4.38054 4.48758 4.38054 5.48341C4.38054 5.72507 4.53054 6.17091 4.84304 6.17091C4.84554 6.17091 4.84845 6.17091 4.85138 6.17091C5.01929 6.17091 5.15554 6.03466 5.15554 5.86675C5.15554 5.75425 5.07638 5.65841 5.07638 5.54591C5.07638 4.79591 6.54305 4.69176 6.57639 3.52926C6.57637 2.82092 5.97637 2.27924 4.98886 2.27924Z" fill="white"/>
+								</svg>
+							</div>
+
+						</div>
+
+					</div>
+
+					<div class="right">
+						<h1>{{ object.name }}</h1>
+						
+						<div class="service-raiting">
+
+							<div class="star-1"></div>
+							<div class="star-1"></div>
+							<div class="star-1"></div>
+							<div class="star-1"></div>
+							<div class="star-2"></div>
+							<div class="count">{{ object.rating }}</div>
+						</div>
+
+						<p>{{ object.pre_content }}</p>
+						
+
+						<div class="service-info-block">
+
+							<div class="service-info">
+
+								<div class="icon">
+									<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1615006700/time_1_rqjpn5.png">
+								</div>
+
+								<div class="info">
+									<div class="name">Время выполнения:</div>
+									<div class="desc">{{ object.execution_time }}</div>
+								</div>
+
+							</div>
+
+							<div class="service-info">
+
+								<div class="icon">
+									<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1615006791/Group_1_prohmw.png">
+								</div>
+								
+								<div class="info">
+									<div class="name">Что необходимо:</div>
+									<div class="desc">{{ object.take }}</div>
+								</div>
+
+							</div>
+
+						</div>
+
+
+
+						<div class="block-garantee">
+
+							<div class="name">Гарантия</div>
+							<p class="desc">Наш сервис предоставляет <strong>гарантию сроком 2 недели</strong> при заказе наших услуг. Также вы можете приобрести у нас дополнительную гарантию на своё устройство.</p>
+
+							<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1599881732/guarantee_1_dcqgb1.png" class="icon" />
+
+							<div class="select-garantee">
+
+								<p>Выбор дополнительной гарантии:</p>
+								
+								{% for guarantee in guarantee %}
+									<div class="wrap-select-garantee">
+										<div class="checkbox">
+											{% if guarantee.default %}
+												<svg viewBox="0 0 10 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.19533 0.18483L3.17601 6.20415L0.804671 3.83281L0 4.63749L3.17601 7.81349L10 0.989501L9.19533 0.18483Z" fill="currentColor"></path></svg>
+											{% endif %}
+										</div>
+										<div class="name">{{ guarantee.name }}</div>
+										<div class="price">{{ guarantee.price }}₽</div>
+									</div>
+								{% endfor %}
+								
+							</div>
+						</div>
+
+						<div class="wrap-price-block">
+
+							<div class="price-block">
+								
+								<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1615006364/Group_qbxnax.png">
+
+								<div class="price-name-block">
+									<div class="name">ЦЕНА УСЛУГИ:</div>
+									<div class="price">{{ object.price }} ₽</div>
+								</div>
+					
+							</div>
+
+
+							<div href="#select-masters" class="order">Заказать</div>
+
+						</div>
+
+
+					</div>
+				</div>
+			</div>
+
+			<div class="block-content">
+				<h2>ИНФОРМАЦИЯ О УСЛУГЕ</h2>
+				
+				{% for content in contents %}
+					<div class="content">
+
+						<div class="name">{{ content.content|safe }}</div>
+
+						<div class="image-block">
+							<div class="temp-1"></div>
+							<div class="temp-2"></div>
+
+							<div class="wrap">
+								<picture>
+
+									<source srcset="{{ content.image }}_750.webp, {{ content.image }}_1500.webp 2x" type="image/webp">
+									<img src="{{ content.image }}_750.jpg" srcset="{{ content.image }}_750.jpg, {{ content.image }}_1500.jpg 2x">
+
+								</picture>
+							</div>
+
+							{% if forloop.counter0 == 0 %}
+								<div class="circle-1">
+									<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1613971451/Ellipse_608_hhqvtc.png">
+								</div>
+							{% endif %}
+							
+							{% if forloop.counter0 == 1 %}
+								<div class="circle-2">
+									<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1613972622/Ellipse_610_1_n6jq2g.png">
+								</div>
+							
+								<div class="circle-3">
+									<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1613972865/Ellipse_609_1_coapzc.png">
+								</div>
+							
+							{% endif %}
+
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+
+			<div class="wrap-similar-services">
+
+				<div class="similar-services">
+
+					<div class="similar-present-block">
+
+						<div class="icon">
+							<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1599969863/support_1_mqeh6v.png" />
+						</div>
+						
+						<div class="name">Возможные услуги</div>
+						<div class="desc">Заказывайте комплекс услуг дешевле!</div>
+
+					</div>
+					
+					{% for simular_service in simular_services %}
+						<div class="similar-block">
+
+							<div class="raiting">
+
+								<div class="icon">
+									<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1599813734/Vector_1_ibzqzd.png" />
+								</div>
+
+								<div class="name">{{ simular_service.rating }}</div>
+							
+							</div>
+
+							<div class="icon">
+								<picture>
+									<source srcset="{{ simular_service.poster }}_750.webp, {{ simular_service.poster }}_1500.webp 2x" type="image/webp">
+									<img src="{{ simular_service.poster }}_750.jpg" srcset="{{ simular_service.poster }}_750.jpg, {{ simular_service.poster }}_1500.jpg 2x">
+								</picture>
+							</div>
+							
+							<div class="info-block">
+								<div class="name">{{ simular_service.name }}</div>
+								<div class="price">
+								
+									Цена:
+									
+									{% if simular_service.price_from %}
+										<span>от</span>
+									{% endif %}
+									
+									{{ simular_service.price }}₽
+								</div>
+							</div>
+							
+							<a href="/service/detail/{{ simular_service.slug }}" class="link">
+
+								<div class="name">Перейти</div>
+
+								<div class="icon">
+									<svg viewBox="0 0 23 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M0 4H22M22 4L18.6849 1M22 4L18.6849 7" stroke="white"/>
+									</svg>
+								</div>
+
+							</a>
+
+						</div>
+					{% endfor %}
+
+				</div>
+
+			</div>
+
+			<div id="select-masters" class="wrap-masters-block">
+
+				<div class="masters-block">
+					
+					<div class="masters-block-top">
+
+						<div class="head">
+							<div class="name">выберете мастерскую</div>
+							<div class="icon"><svg viewBox="0 0 23 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 4H22M22 4L18.6849 1M22 4L18.6849 7" stroke="white"/></svg></div>
+						</div>
+						
+						{% if city.is_metro %}
+							<div class="metro-icons">
+								<div class="name">Выберите метро:</div>
+								
+								{% for master in masters %}
+									<div class="icon">
+										<img src="{{ master.metro_icon }}" />
+									</div>
+								{% endfor %}
+								
+							</div>
+						{% endif %}
+
+						<div class="slider-master-block">
+							{% for master in masters %}
+							
+								{% if forloop.counter < 3 %}
+									<div class="master-block {% if forloop.counter > 1 %}next-master{% endif %}">
+									
+										{% if forloop.counter < 2 %}
+											<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<circle cx="10" cy="10" r="10" fill="#0031E0"/>
+												<g clip-path="url(#clip0)">
+													<path d="M14.1953 6.18488L8.17601 12.2042L5.80467 9.83287L5 10.6375L8.17601 13.8135L15 6.98956L14.1953 6.18488Z" fill="white"/>
+												</g>
+												<defs>
+													<clipPath id="clip0">
+														<rect width="10" height="10" fill="white" transform="translate(5 5)"/>
+													</clipPath>
+												</defs>
+											</svg>
+										{% endif %}
+										
+
+										<div class="adress-block">
+
+											<div class="icon">
+												<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1600062487/pin_2_1_uuqbkk.png" />
+											</div>
+
+											<div class="name-block">
+												<div class="name">Адрес:</div>
+												<div class="adress">{{ master.name }}</div>
+											</div>
+
+										</div>
+										
+										{% if city.is_metro %}
+											<div class="metro-block">
+
+												<div class="icon">
+													<img src="{{ master.metro_icon }}" />
+												</div>
+
+												<div class="name-block">
+													<div class="name">Метро:</div>
+													<div class="metro">{{ master.metro_name }}</div>
+												</div>
+
+											</div>
+										{% endif %}
+										
+										<div class="additional-service-block">
+											<div class="name">Дополнительный сервис</div>
+											
+											{% for simular_service in simular_services %}
+												<div class="additional-service">
+													<div class="checkbox">
+														{% if simular_service.active %}
+															<svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M9.19533 0.18483L3.17601 6.20415L0.804671 3.83281L0 4.63749L3.17601 7.81349L10 0.989501L9.19533 0.18483Z" fill="#252525"/>
+															</svg>
+														{% endif %}
+													</div>
+													<div class="name">{{ simular_service.name }}</div>
+													<div class="price">{{ simular_service.price }}₽</div>
+												</div>
+											{% endfor %}
+
+										</div>
+
+
+										<div class="parts-block">
+
+											<div class="name-blcok">
+
+												<div class="name">Запчасти</div>
+												<div class="icon">
+													<svg viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+														<path d="M5 0C2.24291 0 0 2.24291 0 5C0 7.75709 2.24291 10 5 10C7.75709 10 10 7.75709 10 5C10 2.24291 7.75709 0 5 0ZM5 9.16666C2.7025 9.16666 0.83334 7.2975 0.83334 5C0.83334 2.7025 2.7025 0.83334 5 0.83334C7.2975 0.83334 9.16666 2.7025 9.16666 5C9.16666 7.2975 7.2975 9.16666 5 9.16666Z" fill="#252525"/>
+														<path d="M4.89459 6.73746C4.6225 6.74205 4.40333 6.96121 4.39875 7.23331C4.39833 7.24165 4.39833 7.2504 4.39875 7.25872C4.40833 7.53248 4.6375 7.74665 4.91125 7.73749H4.89459C5.16959 7.7329 5.39043 7.50873 5.39043 7.23331C5.38375 6.96205 5.16584 6.74412 4.89459 6.73746Z" fill="#252525"/>
+														<path d="M4.98886 2.27914C4.40136 2.26164 3.83386 2.4933 3.42635 2.91664C3.37926 2.9758 3.35426 3.04954 3.35551 3.12497C3.3576 3.30956 3.50426 3.45997 3.68885 3.46663C3.7747 3.46704 3.85761 3.43579 3.9222 3.37913C4.18054 3.11122 4.53761 2.9608 4.9097 2.96247C5.4722 2.96247 5.74304 3.26663 5.74304 3.62497C5.74304 4.39163 4.38054 4.48747 4.38054 5.48331C4.38054 5.72496 4.53054 6.1708 4.84304 6.1708C4.84554 6.1708 4.84845 6.1708 4.85138 6.1708C5.01929 6.1708 5.15554 6.03455 5.15554 5.86664C5.15554 5.75414 5.07638 5.6583 5.07638 5.5458C5.07638 4.79581 6.54305 4.69165 6.57639 3.52915C6.57637 2.82082 5.97637 2.27914 4.98886 2.27914Z" fill="#252525"/>
+													</svg>
+												</div>
+											</div>
+											
+											{% for spare_part in spare_parts %}
+												<div class="part">
+													<div class="checkbox">
+														{% if spare_part.active %}
+															<svg viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+																<path d="M9.19533 0.18483L3.17601 6.20415L0.804671 3.83281L0 4.63749L3.17601 7.81349L10 0.989501L9.19533 0.18483Z" fill="#252525"/>
+															</svg>
+														{% endif %}
+													</div>
+													<div class="name">{{ spare_part.name }}</div>
+													<div class="price">{{ spare_part.price }}₽</div>
+												</div>
+											{% endfor %}
+											
+										</div>
+
+										{% if forloop.counter < 2 %}<div class="next">Далее</div>{% endif %}
+
+									</div>
+								{% endif %}
+							{% endfor %}
+
+						</div>
+
+
+						<div class="slider-masters-pagination">
+
+							<div class="left-arrow">
+								<svg viewBox="0 0 20 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path d="M20 8.7325L20 7.60574L2.25352 7.60574L9.01409 0.845176L8.16902 0.000105777L7.14153e-07 8.16912L8.16901 16.3381L9.01408 15.4931L2.25352 8.7325L20 8.7325Z" fill="currentColor"/>
+								</svg>
+							</div>
+
+							<div class="right-arrow">
+								<svg viewBox="0 0 20 17" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+									<path d="M0 7.60563V8.73239H17.7465L10.9859 15.493L11.831 16.338L20 8.16901L11.831 0L10.9859 0.84507L17.7465 7.60563H0Z" fill="currentColor"/>
+								</svg>
+							</div>
+
+							<div class="count-masters"><span class="left">{{ 1 }}</span><span class="right">/{{ masters|length }}</span></div>
+
+							<div class="liner">
+								<div ref="back" class="back"></div>
+								<div ref="strip" class="strip" style="left: 0px; width: 50%;"></div>
+							</div>
+
+						</div>
+
+
+					</div>
+
+					<div class="masters-back">
+						<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1600087150/Navigation-pana_1_ma9az1.png" />
+					</div>
+
+
+				</div>
+
+			</div>
+			
+			<div class="order-form-block">
+
+				<div class="wrap-left">
+					
+					<div id="select-order" class="left">
+
+						<div class="name">ВЫ ВЫБРАЛИ:</div>
+
+						<div class="result-block">
+						
+							{% for master in masters %}
+								{% if master.default and city == master.city %}
+								
+									<div class="adress">
+
+										<div class="icon">
+											<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M13.3389 13.2143C15.4671 9.87469 15.1996 10.2913 15.2609 10.2043C16.0358 9.11137 16.4453 7.82508 16.4453 6.48438C16.4453 2.92891 13.5601 0 10 0C6.45148 0 3.55469 2.92313 3.55469 6.48438C3.55469 7.82422 3.97281 9.14418 4.77305 10.2518L6.66102 13.2143C4.64246 13.5245 1.21094 14.4489 1.21094 16.4844C1.21094 17.2264 1.69523 18.2838 4.00242 19.1078C5.61344 19.6831 7.7434 20 10 20C14.2197 20 18.7891 18.8097 18.7891 16.4844C18.7891 14.4486 15.3616 13.5251 13.3389 13.2143ZM5.75191 9.60723C5.74547 9.59715 5.73875 9.5873 5.73172 9.57762C5.06582 8.66152 4.72656 7.57582 4.72656 6.48438C4.72656 3.55398 7.08617 1.17188 10 1.17188C12.9078 1.17188 15.2734 3.55504 15.2734 6.48438C15.2734 7.57758 14.9406 8.62645 14.3107 9.5184C14.2543 9.59285 14.5487 9.13535 10 16.273L5.75191 9.60723ZM10 18.8281C5.39086 18.8281 2.38281 17.4733 2.38281 16.4844C2.38281 15.8197 3.92844 14.7268 7.35344 14.3007L9.50586 17.6782C9.61344 17.847 9.79977 17.9492 9.99996 17.9492C10.2002 17.9492 10.3865 17.847 10.4941 17.6782L12.6464 14.3007C16.0715 14.7268 17.6172 15.8197 17.6172 16.4844C17.6172 17.4649 14.6362 18.8281 10 18.8281Z" fill="white"/>
+												<path d="M10 3.55469C8.38457 3.55469 7.07031 4.86895 7.07031 6.48438C7.07031 8.0998 8.38457 9.41406 10 9.41406C11.6154 9.41406 12.9297 8.0998 12.9297 6.48438C12.9297 4.86895 11.6154 3.55469 10 3.55469ZM10 8.24219C9.03074 8.24219 8.24219 7.45363 8.24219 6.48438C8.24219 5.51512 9.03074 4.72656 10 4.72656C10.9693 4.72656 11.7578 5.51512 11.7578 6.48438C11.7578 7.45363 10.9693 8.24219 10 8.24219Z" fill="white"/>
+											</svg>
+										</div>
+
+										<div class="name-block">
+											<div class="name">
+												Мастерская:
+											</div>
+											<div class="desc">
+												{{ master.name }}
+											</div>
+										</div>
+
+									</div>
+
+									<div class="result-price-block">
+
+										<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1601184859/Polygon_4_txgyfz.png" class="icon-absolute-left" />
+
+										<div class="name">Услуга:</div>
+										<div class="price-block">
+											<div class="name">{{ object.name }}</div>
+											<div class="price">{{ object.price }}₽</div>
+										</div>
+
+									</div>
+
+									<div class="result-price-block">
+										<div class="name">Гарантия:</div>
+											{% for guarantee in guarantee %}
+												{% if guarantee.default %}
+													<div class="price-block">
+														<div class="name">{{ guarantee.name }}</div>
+														<div class="price">{{ guarantee.price }}₽</div>
+													</div>
+												{% endif %}
+											{% endfor %}
+										
+									</div>
+
+
+									<div class="result-price-block">
+
+										<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1601185035/Polygon_5_yniz4x.png" class="icon-absolute-right" />
+
+										<div class="name">Вид транспортировки:</div>
+										
+										<div class="price-block">
+											{% for delivery in delivery %}
+												{% if delivery.default %}
+													<div class="name">{{ delivery.name }} - {{ delivery.price }} руб.</div>
+												{% endif %}
+											{% endfor %}
+										</div>
+
+									</div>
+									
+								{% endif %}
+							{% endfor %}
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="wrap-right">
+					<div class="right">
+						<div class="name">ОФОРМЛЕНИЕ ЗАЯВКИ</div>
+						
+						<div class="wrap-input-block">
+
+							<div class="name">ИМЯ<span>*</span></div>
+
+							<div class="input-block">
+								<input type="text" placeholder="Как вас зовут?"/>
+							</div>
+
+						</div>
+
+						<div class="wrap-input-block">
+
+							<div class="name">ТЕЛЕФОН<span>*</span></div>
+
+							<div class="input-block">
+								<input type="text" placeholder="Ваш номер телефона"/>
+							</div>
+
+						</div>
+
+						<div class="wrap-input-block">
+
+							<div class="name">E-MAIL<span>*</span></div>
+
+							<div class="input-block">
+								<input type="text" placeholder="Ваша электронная почта"/>
+							</div>
+
+						</div>
+
+						<div class="form-political">
+
+							<div class="checkbox">
+								<svg viewBox="0 0 10 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M9.19533 0.18483L3.17601 6.20415L0.804671 3.83281L0 4.63749L3.17601 7.81349L10 0.989501L9.19533 0.18483Z" fill="currentColor"></path></svg>
+							</div>
+
+							<div class="name">
+								Я соглашаюсь с политикой конфиденциальности
+							</div>
+
+						</div>
+
+						<div class="warning-name">
+							Поля, отмеченные специальным символом * обязательны для заполнения заявки
+						</div>
+
+						<div class="form-order">Отправить заявку</div>
+
+					</div>
+				</div>
+
+
+				<svg class="form-circle-icon" viewBox="0 0 119 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<circle cx="25.5" cy="93.5" r="93.5" fill="#E8F0FF"/>
+				</svg>
+
+
+			</div>
+
+			<div class="comments-wrap-block">
+				<div class="comments-block">
+
+					<div class="comments">
+						<div class=name>КОММЕНТАРИИ</div>
+
+						<div class="comment">
+							<div class=icon></div>
+							<div class=right>
+
+								<div class=name-block>
+									<div class=name>Денис</div>
+								</div>
+
+								<textarea placeholder="Оставьте свой комментарий..."></textarea>
+
+								<div class=button>
+
+									<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M14.3584 0.0496319L0.242254 7.13701C0.0998128 7.20853 0.00726399 7.35155 0.000408524 7.51075C-0.00644695 7.66998 0.073387 7.82045 0.209149 7.90395L3.51548 9.93862V14.5607C3.51548 14.7498 3.63644 14.9176 3.81583 14.9775C3.99524 15.0374 4.19273 14.9757 4.30629 14.8245L6.56596 11.8158L11.6344 14.9349C11.7575 15.0106 11.9099 15.021 12.042 14.9627C12.1742 14.9045 12.2693 14.7849 12.2964 14.643L14.9912 0.524563C14.9921 0.519876 14.993 0.515188 14.9937 0.510472C15.0514 0.154603 14.678 -0.115017 14.3584 0.0496319ZM3.93187 9.16295L1.34118 7.56867L11.6804 2.37762L3.93187 9.16295ZM4.3943 13.2438V9.92619L11.673 3.55234C11.5131 3.76518 4.58467 12.9904 4.3943 13.2438ZM11.5525 13.8526L7.09594 11.1101L13.7728 2.21991L11.5525 13.8526Z" fill="white"/>
+									</svg>
+
+									<div class=name>
+										Опубликовать
+									</div>
+
+								</div>
+
+							</div>
+						</div>
+
+						<div class="comment">
+							<div class=icon></div>
+							<div class=right>
+
+								<div class=name-block>
+									<div class=name>Денис</div>
+									<div class=date>14.04.2020</div>
+								</div>
+
+								<div class=desc>
+									Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов.
+								</div>
+
+								<div class=like>
+
+									<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M13.9056 2.1758C13.1658 1.33633 12.1394 0.874023 11.0156 0.874023C9.43512 0.874023 8.43448 1.81797 7.87339 2.60986C7.72781 2.81535 7.60397 3.0214 7.5 3.21528C7.39603 3.0214 7.27222 2.81535 7.12661 2.60986C6.56552 1.81797 5.56488 0.874023 3.98438 0.874023C2.86061 0.874023 1.83425 1.33636 1.09438 2.17583C0.388682 2.97663 0 4.04913 0 5.19575C0 6.44389 0.487295 7.60478 1.53355 8.84907C2.46861 9.96118 3.81384 11.1075 5.37158 12.4349C5.95204 12.9296 6.5523 13.4411 7.19136 14.0002L7.21055 14.017C7.2934 14.0896 7.3967 14.1258 7.5 14.1258C7.6033 14.1258 7.7066 14.0896 7.78945 14.017L7.80864 14.0002C8.4477 13.4411 9.04796 12.9296 9.62851 12.4349C11.1862 11.1075 12.5314 9.96121 13.4665 8.84907C14.5127 7.60475 15 6.44389 15 5.19575C15 4.04913 14.6113 2.97663 13.9056 2.1758ZM9.05839 11.766C8.558 12.1923 8.04302 12.6312 7.5 13.1032C6.95701 12.6312 6.442 12.1924 5.94152 11.7659C2.89292 9.16806 0.878906 7.45182 0.878906 5.19575C0.878906 4.26323 1.1896 3.3971 1.75377 2.75693C2.32441 2.1095 3.11657 1.75293 3.98438 1.75293C5.18933 1.75293 5.96824 2.49525 6.40945 3.11799C6.80522 3.6765 7.01174 4.23953 7.08217 4.45565C7.14108 4.63656 7.30975 4.75899 7.5 4.75899C7.69025 4.75899 7.85892 4.63656 7.91783 4.45565C7.98826 4.23953 8.19478 3.6765 8.59055 3.11796C9.03176 2.49525 9.81067 1.75293 11.0156 1.75293C11.8834 1.75293 12.6756 2.1095 13.2462 2.75693C13.8104 3.3971 14.1211 4.26323 14.1211 5.19575C14.1211 7.45182 12.1071 9.16806 9.05839 11.766Z" fill="#252525"/>
+									</svg>
+									
+									<div class=name>26</div>
+
+								</div>
+
+							</div>
+						</div>
+
+						<div class="comment">
+							<div class=icon></div>
+							<div class=right>
+
+								<div class=name-block>
+									<div class=name>Денис</div>
+									<div class=date>14.04.2020</div>
+								</div>
+
+								<div class=desc>
+									Давно выяснено, что при оценке дизайна и композиции читаемый текст мешает сосредоточиться. Lorem Ipsum используют потому, что тот обеспечивает более или менее стандартное заполнение шаблона, а также реальное распределение букв и пробелов.
+								</div>
+
+								<div class=like>
+
+									<svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M13.9056 2.1758C13.1658 1.33633 12.1394 0.874023 11.0156 0.874023C9.43512 0.874023 8.43448 1.81797 7.87339 2.60986C7.72781 2.81535 7.60397 3.0214 7.5 3.21528C7.39603 3.0214 7.27222 2.81535 7.12661 2.60986C6.56552 1.81797 5.56488 0.874023 3.98438 0.874023C2.86061 0.874023 1.83425 1.33636 1.09438 2.17583C0.388682 2.97663 0 4.04913 0 5.19575C0 6.44389 0.487295 7.60478 1.53355 8.84907C2.46861 9.96118 3.81384 11.1075 5.37158 12.4349C5.95204 12.9296 6.5523 13.4411 7.19136 14.0002L7.21055 14.017C7.2934 14.0896 7.3967 14.1258 7.5 14.1258C7.6033 14.1258 7.7066 14.0896 7.78945 14.017L7.80864 14.0002C8.4477 13.4411 9.04796 12.9296 9.62851 12.4349C11.1862 11.1075 12.5314 9.96121 13.4665 8.84907C14.5127 7.60475 15 6.44389 15 5.19575C15 4.04913 14.6113 2.97663 13.9056 2.1758ZM9.05839 11.766C8.558 12.1923 8.04302 12.6312 7.5 13.1032C6.95701 12.6312 6.442 12.1924 5.94152 11.7659C2.89292 9.16806 0.878906 7.45182 0.878906 5.19575C0.878906 4.26323 1.1896 3.3971 1.75377 2.75693C2.32441 2.1095 3.11657 1.75293 3.98438 1.75293C5.18933 1.75293 5.96824 2.49525 6.40945 3.11799C6.80522 3.6765 7.01174 4.23953 7.08217 4.45565C7.14108 4.63656 7.30975 4.75899 7.5 4.75899C7.69025 4.75899 7.85892 4.63656 7.91783 4.45565C7.98826 4.23953 8.19478 3.6765 8.59055 3.11796C9.03176 2.49525 9.81067 1.75293 11.0156 1.75293C11.8834 1.75293 12.6756 2.1095 13.2462 2.75693C13.8104 3.3971 14.1211 4.26323 14.1211 5.19575C14.1211 7.45182 12.1071 9.16806 9.05839 11.766Z" fill="#252525"/>
+									</svg>
+									
+									<div class=name>26</div>
+
+								</div>
+
+							</div>
+						</div>
+
+
+					</div>
+
+					<div class=empty></div>
+
+				</div>
+
+				<img src="https://res.cloudinary.com/shop-consoles-ru/image/upload/v1601272863/Telecommuting-pana_1_rugvn6.jpg">
+
+			</div>
+
+
+		</div>
+	</div>
+{% endblock %}

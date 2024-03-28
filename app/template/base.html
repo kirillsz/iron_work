@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<title>{% block seo_t %}Ремонт игровых приставок Playstation | Xbox | Nintendo{% endblock %}</title>
+	<meta name="description"  content="{% block seo_d %}Ремонт игровых приставок Playstation | Xbox | Nintendo{% endblock %}" />
+	
+	<meta name="yandex-verification" content="b00f4cd349d7d541" />
+	<meta name="yandex-verification" content="54f9122d2698f920" />
+	<meta name="google-site-verification" content="YNAhdhitcSvg1bhVzodbgJAKfEyoRzRmAXqgX5AwHDc" />
+	<link rel="icon" href="/static/icon/favicon.ico"  type="image/x-icon" />
+	
+	{% load static %}
+	
+	<link rel="preload" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" as="style">
+    <link rel="preload" type="text/css" href="/static/css/head.css" as="style"/>
+    <link rel="preload" type="text/css" href="/static/css/index.css" as="style"/>
+    <link rel="preload" type="text/css" href="/static/css/service.css" as="style"/>
+    <link rel="preload" type="text/css" href="/static/css/service-detail.css" as="style"/>
+	<link rel="preload" type="text/css" href="/static/css/traidin.css" as="style"/>
+
+	<!-- app -->
+    <script defer="defer" src="/static/app/js/chunk-vendors.d13f3472.js"></script>
+    <script defer="defer" src="/static/app/js/app.bfa33a4e.js"></script>
+    <link href="/static/app/css/app.fa128524.css" rel="stylesheet">
+	
+	
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+	<link href="/static/css/head.css" rel="stylesheet">
+	<link href="/static/css/index.css" rel="stylesheet">
+	<link href="/static/css/service.css" rel="stylesheet">
+	<link href="/static/css/service-detail.css" rel="stylesheet">
+	<link href="/static/css/traidin.css" rel="stylesheet">
+	
+	
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-125271837-1"></script>
+	<script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date()); gtag('config', 'UA-125271837-1');</script>
+	
+</head>
+<body>
+	<noscript><strong>We're sorry but triada-service-client doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript>
+	
+	<div id="app">
+		
+		{% include "components/header.html" %}
+		
+		{% block body %}
+			{% include "components/body.html" %}
+		{% endblock %}
+		
+		{% include "components/footer.html" %}
+		
+	</div>
+	
+	<!-- Yandex.Metrika counter -->
+	<script>
+		(function (d, w, c) {
+			(w[c] = w[c] || []).push(function() {
+				try {
+					w.yaCounter30162354 = new Ya.Metrika({
+						id:30162354,
+						clickmap:true,
+						trackLinks:true,
+						accurateTrackBounce:true,
+						webvisor:true
+					});
+				} catch(e) { }
+			});
+
+			var n = d.getElementsByTagName("script")[0],
+				s = d.createElement("script"),
+				f = function () { n.parentNode.insertBefore(s, n); };
+			s.type = "text/javascript";
+			s.async = true;
+			s.src = "https://mc.yandex.ru/metrika/watch.js";
+
+			if (w.opera == "[object Opera]") {
+				d.addEventListener("DOMContentLoaded", f, false);
+			} else { f(); }
+		})(document, window, "yandex_metrika_callbacks");
+	</script>
+	<noscript><div><img src="https://mc.yandex.ru/watch/30162354" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+	<!-- /Yandex.Metrika counter -->
+
+</body>
+</html>
