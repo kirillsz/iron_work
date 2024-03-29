@@ -128,8 +128,8 @@
     color: $primary;
     text-decoration: none;
     position: relative;
-
     @include H40;
+    line-height: 1 !important;
     font-weight: 500;
     @media (min-width:768px) {
       @include H3;

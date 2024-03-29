@@ -141,13 +141,7 @@
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-
   width: 100%;
   height: 3px;
-  top: 100%;
-  @media (min-width:1200px) {
-    width: calc(100% - 10px);
-    height: 4px;
-    top: calc(100% - 5px);
-  }
+  bottom: -6px;
 }
