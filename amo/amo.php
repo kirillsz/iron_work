@@ -1,18 +1,15 @@
 <?php
 	require_once 'access.php';
 
-if (isset($_POST) && !empty($_POST['telephone'])) {
+if (isset($_POST)) && !empty($_POST['telephone']){
 	$ip = '1.2.3.4';
 	$domain = 'k701.ru';
 	$pipeline_id = 5396578;
 	$user_amo = 6299323;
 	
 	$phone = $_POST['telephone'];
-	if(isset($_POST['actionType'])){
-		$action_data = $_POST['actionType'];
-	}else{
-		$action_data = $_POST['tractor-type'].", ".$_POST['service-type'].", ". $_POST['date'];
-	}
+	$action_data = $_POST['actionType'];
+	
 	
 
 $data3 = 
@@ -111,27 +108,7 @@ curl_setopt($curl, CURLOPT_COOKIEFILE, 'amo/cookie.txt');
 curl_setopt($curl, CURLOPT_COOKIEJAR, 'amo/cookie.txt');
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
 curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-
-
-
 $out = curl_exec($curl);
-$code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-$code = (int) $code;
-$errors = [
-	301 => 'Moved permanently.',
-	400 => 'Wrong structure of the array of transmitted data, or invalid identifiers of custom fields.',
-	401 => 'Not Authorized. There is no account information on the server. You need to make a request to another server on the transmitted IP.',
-	403 => 'The account is blocked, for repeatedly exceeding the number of requests per second.',
-	404 => 'Not found.',
-	500 => 'Internal server error.',
-	502 => 'Bad gateway.',
-	503 => 'Service unavailable.'
-];
-
-if ($code < 200 || $code > 204) {
-	header("Location:https://$domain/&sendform=error");
-}
-header("Location:https://$domain/&sendform=success");
 
 }
 	echo "У вас нет прав для этого действия";

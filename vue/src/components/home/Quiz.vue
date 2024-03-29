@@ -138,16 +138,20 @@
 
     async function order() {
 
-        await fetch(`${domain.value}/api/order/create`, {
-            method: 'POST',
-            headers: { 
-                'Content-Type':'application/json',
-            },
-            body: JSON.stringify({
-                phone: phone.value,
-                desc: `${selectedTractor.value},  ${selectedService.value}, ${selectedTime.value}`,
-            })
-        })
+        if(phone.value.length !== 17){
+   
+    return;
+  }
+  let formData = new FormData();
+  formData.append('telephone', phone.value);
+  formData.append('actionType', `${selectedTractor.value},  ${selectedService.value}, ${selectedTime.value}`);
+  
+   await fetch(`${domain.value}/amo/amo.php`, {
+    method: "POST",
+    body: formData
+  });
+
+        
 
         pop_up_close()
 

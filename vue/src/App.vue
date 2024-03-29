@@ -57,7 +57,9 @@
             <span>Отправить</span>
           </button>
 
-          <a href="/policy" class="popup_police">Политика конфиденциальности</a>
+          <a href="/policy" class="popup_police"
+            >Политика конфиденциальности</a
+          >
         </div>
       </form>
     </div>
@@ -79,15 +81,17 @@ function pop_up_close() {
 const phone = ref("+7");
 
 async function order() {
-  await fetch(`${domain.value}/api/order/create`, {
+  if(phone.value.length !== 17){
+    
+    return;
+  }
+  let formData = new FormData();
+  formData.append('telephone', phone.value);
+  formData.append('actionType', "Консультация");
+  
+   await fetch(`${domain.value}/amo/amo.php`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      phone: phone.value,
-      desc: "",
-    }),
+    body: formData
   });
 
   pop_up_close();
