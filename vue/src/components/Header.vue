@@ -50,16 +50,16 @@
                 <div class="b-header__pluses__item__title">Обмен КПП по Trade-in за 1 день</div>
               </div>
             </div>
-            <div class="b-header__pluses__item__wrapper">
+            <a href="#tradein" class="b-header__pluses__item__wrapper" style="text-decoration: none;">
               <div class="b-header__pluses__item b-header__pluses__item_link">
                 <div class="b-header__pluses__item__title">Всегда в наличии обменный фонд</div>
               </div>
-            </div>
-            <div class="b-header__pluses__item__wrapper">
+            </a>
+            <a href="#delivery" class="b-header__pluses__item__wrapper" style="text-decoration: none;">
               <div class="b-header__pluses__item b-header__pluses__item_link">
                 <div class="b-header__pluses__item__title">Доставка до трактора за 1 день</div>
               </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>

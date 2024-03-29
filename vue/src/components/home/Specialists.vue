@@ -1,5 +1,5 @@
 <template>
-<section class="b-specialists__wrapper g-wrapper">
+<section class="b-specialists__wrapper g-wrapper" id="specialists">
     <div class="container">
         <div class="row just-sb align-ic">
             <div class="order-lg-1 order-sm-2 col-lg-5 col-sm-12">

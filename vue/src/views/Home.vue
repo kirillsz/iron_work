@@ -1,7 +1,7 @@
 <template>
   <Header></Header>
   <!--regions-->
-  <section class="b-regions__wrapper g-wrapper">
+  <section class="b-regions__wrapper g-wrapper" id="delivery">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 col-sm-12 d-flex">
@@ -36,7 +36,7 @@
   <Catalog></Catalog>
 
   <!--get_unit-->
-  <section class="b-get-unit__wrapper g-wrapper">
+  <section class="b-get-unit__wrapper g-wrapper" id="tradein">
     <div class="container">
       <div class="row just-sb align-ic">
         <div class="col-lg-5 col-sm-12">
@@ -47,7 +47,7 @@
           />
         </div>
 
-        <div class="col-lg-6 col-sm-12">
+        <div class="col-lg-6 col-sm-12" >
           <h2 class="b-get-unit__title">Получите агрегат в течение суток</h2>
           <div class="b-get-unit__subtitle">Гарантия 12 мес. или 2 500 м/ч</div>
           <div class="b-get-unit__text">

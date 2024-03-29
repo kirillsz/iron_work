@@ -1,6 +1,6 @@
 <template>
 
-    <section class="b-documents__wrapper g-wrapper">
+    <section class="b-documents__wrapper g-wrapper" id="documents">
         <div class="container">
             <div class="row align-ic just-sb">
                 <div class="col-lg col-sm-12">

@@ -1,5 +1,5 @@
 <template>
- <section class="b-catalog-wrapper g-wrapper">
+ <section class="b-catalog-wrapper g-wrapper" id="catalog">
     <div class="container">
       <div class="row">
 

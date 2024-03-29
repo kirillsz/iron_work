@@ -11,10 +11,10 @@
         <div class="order-lg-1 order-md-3 col-lg-10 col-sm-12">
           <ul class="b-footer__menu">
             <li><a href="#">Железное дело</a></li>
-            <li><a href="#">Выбор агрегата</a></li>
-            <li><a href="#">Доставка</a></li>
-            <li><a href="#">Документы</a></li>
-            <li><a href="#">Представители</a></li>
+            <li><a href="#catalog">Выбор агрегата</a></li>
+            <li><a href="#delivery">Доставка</a></li>
+            <li><a href="#documents">Документы</a></li>
+            <li><a href="#specialists">Представители</a></li>
           </ul>
         </div>
         <div
