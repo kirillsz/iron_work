@@ -1,7 +1,7 @@
 <?php
 	require_once 'access.php';
 
-if (isset($_POST)) && !empty($_POST['telephone']){
+if (isset($_POST) && !empty($_POST['telephone'])){
 	$ip = '1.2.3.4';
 	$domain = 'k701.ru';
 	$pipeline_id = 5396578;
