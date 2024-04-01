@@ -24,7 +24,15 @@
     object-fit: contain;
   }
 }
-
+.b-catalog__item__img ,
+.b-catalog__item__description {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
 .b-catalog__item__description{}
 .b-catalog__item__title{
   margin-bottom: 4px;
