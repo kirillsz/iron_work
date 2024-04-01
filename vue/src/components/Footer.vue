@@ -14,7 +14,6 @@
             <li><a href="#catalog">Выбор агрегата</a></li>
             <li><a href="#delivery">Доставка</a></li>
             <li><a href="#documents">Документы</a></li>
-            <li><a href="#specialists">Представители</a></li>
           </ul>
         </div>
         <div
